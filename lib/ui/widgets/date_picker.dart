@@ -3,13 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class BirthDatePicker extends StatelessWidget {
+  final DateTime initValue;
   final Function onSaved;
 
-  const BirthDatePicker({Key key, @required this.onSaved}) : super(key: key);
+  const BirthDatePicker({
+    Key key,
+    @required this.onSaved,
+    this.initValue,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return DateTimeField(
+      initialValue: initValue,
       onSaved: onSaved,
       validator: (value) => value == null ? 'Поле должно быть заполнено' : null,
       decoration: InputDecoration(

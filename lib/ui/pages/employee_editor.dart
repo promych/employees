@@ -68,6 +68,10 @@ class _EmployeeEditorPageState extends State<EmployeeEditorPage> {
                 ),
                 SizedBox(height: 20),
                 BirthDatePicker(
+                  initValue: (widget.employee != null)
+                      ? DateTime.fromMillisecondsSinceEpoch(
+                          widget.employee.birthDate)
+                      : null,
                   onSaved: (DateTime value) =>
                       _birthDate = value.millisecondsSinceEpoch,
                 ),
